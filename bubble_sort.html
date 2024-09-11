@@ -212,18 +212,15 @@
       array = Array.from({ length: numElements }, (_, i) => i + 1);
       renderCards(array);
     });
-
     document.getElementById('genRandArr').addEventListener('click', function() {
       const numElements = parseInt(document.getElementById('numElems').value);
       array = Array.from({ length: numElements }, () => Math.floor(Math.random() * 100));
       renderCards(array);
     });
-
     speedControl.addEventListener('input', function() {
       sortSpeed = 1000 / speedControl.value;
       speedLabel.innerText = `Speed: ${speedControl.value}`;
     });
-
     function renderCards(array) {
       arrayContainer.innerHTML = '';
       cards = array.map((value, index) => {
@@ -237,7 +234,6 @@
         return card;
       });
     }
-
     function addDragEvents(card) {
       card.addEventListener('dragstart', () => {
         card.classList.add('dragging');
@@ -250,7 +246,6 @@
       card.addEventListener('dragover', (event) => {
         event.preventDefault();
       });
-
       card.addEventListener('drop', (event) => {
         event.preventDefault();
         const draggedCard = document.querySelector('.dragging');
@@ -260,11 +255,9 @@
         renderCards(array);
       });
     }
-
     document.getElementById('sortArr').addEventListener('click', async function() {
       await bubbleSort(array);
     });
-
     async function bubbleSort(array) {
       let n = array.length;
       for (let i = 0; i < n - 1; i++) {
@@ -286,35 +279,28 @@
       markSorted(0);
       completeMessage.style.display = 'block';
     }
-
     function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
-
     function highlightComparison(index1, index2) {
       cards[index1].classList.add('comparing');
       cards[index2].classList.add('comparing');
     }
-
     function removeHighlightComparison(index1, index2) {
       cards[index1].classList.remove('comparing');
       cards[index2].classList.remove('comparing');
     }
-
     function highlightSwap(index1, index2) {
       cards[index1].classList.add('swapping');
       cards[index2].classList.add('swapping');
     }
-
     function removeHighlightSwap(index1, index2) {
       cards[index1].classList.remove('swapping');
       cards[index2].classList.remove('swapping');
     }
-
     function markSorted(index) {
       cards[index].classList.add('sorted');
     }
-
     function updateProgressBar(completed, total) {
       progressFill.style.width = `${(completed / total) * 100}%`;
     }
