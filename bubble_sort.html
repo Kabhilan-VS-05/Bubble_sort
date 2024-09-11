@@ -3,16 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bubble Sort Visualization</title>
+  <title>Bubble Sort Visualization with Drag and Drop</title>
   <link rel="stylesheet" href="design.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Bubble Sort Visualization</h1>
-    <div class="array-container" id="array"></div>
-    <button id="sortBtn">Start Bubble Sort</button>
+
+  <h2>Bubble Sort Visualization with Drag and Drop</h2>
+
+  <label for="numElems">Enter Number of Elements:</label>
+  <input type="number" id="numElems" min="2" max="100" value="10">
+  <button id="genArr">Generate Array</button>
+  <button id="genRandArr">Generate Random Array</button>
+
+  <label for="speedCtrl">Adjust Sorting Speed:</label>
+  <input type="range" id="speedCtrl" min="1" max="5" step="1" value="3">
+  <label id="speedLbl">Speed: 3</label>
+
+  <div id="arrCont"></div>
+
+  <button id="sortArr">Sort Array</button>
+
+  <div id="progressBar">
+    <div id="progFill"></div>
   </div>
 
+  <h3 id="compMsg" style="display:none;">Array is fully sorted!</h3>
+
   <script src="Sort.js"></script>
+
 </body>
 </html>
